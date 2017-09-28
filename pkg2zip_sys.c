@@ -139,3 +139,11 @@ void sys_write(sys_file file, uint64_t offset, const void* buffer, uint32_t size
 }
 
 #endif
+
+void sys_rename(const char* oldfname, const char* newfname)
+{
+    if (rename(oldfname, newfname) == -1)
+    {
+        fatal("ERROR: failed to rename the file from %s to %s\n", oldfname, newfname);
+    }
+}
